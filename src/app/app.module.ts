@@ -10,18 +10,21 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { NgxsModule } from '@ngxs/store';
-import { NgxsReduxDevtoolsPluginModule } from  '@ngxs/devtools-plugin'
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin'
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+
+import { TodoState } from './states/todo.state';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule,
-    NgxsModule.forRoot(),
+    NgxsModule.forRoot([TodoState]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
     IonicModule.forRoot(),
-    AppRoutingModule],
+    AppRoutingModule,
+    ],
   providers: [
     StatusBar,
     SplashScreen,
